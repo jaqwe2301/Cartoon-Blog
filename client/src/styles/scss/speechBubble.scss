@@ -1,0 +1,40 @@
+.bubbleBox {
+    margin-top: 15px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    gap: 7px;
+    justify-content: center;
+}
+
+.bubble-content-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(207, 207, 207);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.bubble-content-container:hover{
+    background-color: rgb(255, 213, 134);
+    
+}
+
+// .bubbleBox::after {
+//     display: block;
+//   }
+
+// .bubble {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     border-radius: 50%;
+// }
+
+.bubble {
+    
+}

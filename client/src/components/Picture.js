@@ -14,8 +14,6 @@ const Picture = ({getIsPicture, getImgSrc}) => {
     const saveFileImage = e => {
       setEnters(enters => [...enters, URL.createObjectURL(e.target.files[0])]);
       setFileImage(URL.createObjectURL(e.target.files[0]));
-      console.log(enters);
-      console.log(fileImage);
     };
   
     // 파일 삭제
@@ -68,11 +66,10 @@ const Picture = ({getIsPicture, getImgSrc}) => {
             <div className="imgFile-content-container">
                 {fileImage && (
                   enters.map((ent,index) => (
-                    <button id='imgFile' type="button" onClick={() => {setIsPicture(true); {getIsPicture(true); getImgSrc(enters[index])}}}>
+                    <div id='imgFile' className='imgFile-box' onClick={() => {setIsPicture(true); {getIsPicture(true); getImgSrc(enters[index])}}}>
                       <img src={ent} alt="imgFile" className="imgFile-content"/>
-                    </button>))
+                    </div>))
                 )}
-                <button type="button" onClick={() => {setIsPicture(true); {getIsPicture(true);}}}>테스트</button>
                 {/* {fileImage && (
                 <img
                   alt="img"

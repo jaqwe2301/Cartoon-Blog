@@ -1,33 +1,21 @@
-.imgFile-container {
-  width: 85%;
-  display: flex;
-  align-items: center;
+.bubbleBox {
   margin-top: 15px;
-  flex-direction: column;
-}
-
-.imgFile-content-container {
+  width: 90%;
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
   gap: 7px;
   justify-content: center;
-  margin-top: 10px;
 }
 
-.imgFile-box {
+.bubble-content-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: rgb(207, 207, 207);
+  padding: 5px;
   border-radius: 5px;
-  padding: 6px;
 }
 
-.imgFile-box:hover {
+.bubble-content-container:hover {
   background-color: rgb(255, 213, 134);
-}
-
-.imgFile-content {
-  width: 100%;
 }

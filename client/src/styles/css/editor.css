@@ -86,37 +86,6 @@
   height: calc(100% - 4px);
   padding-bottom: 0;
 }
-#root #editor section .sectionBox .sidebar .inputbox {
-  width: 83%;
-  height: 25px;
-}
-#root #editor section .sectionBox .sidebar .sidebox {
-  display: flex;
-  flex-wrap: wrap;
-  width: 83%;
-  margin-top: 15px;
-}
-#root #editor section .sectionBox .sidebar .bubbleBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-#root #editor section .sectionBox .sidebar .bubbleBox::after {
-  display: block;
-  content: "";
-  padding-bottom: 100%;
-}
-#root #editor section .sectionBox .sidebar .bubble {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 50%;
-}
 #root #editor section .sectionBox .editor {
   display: flex;
   background-color: #EEEEEE;

@@ -15,6 +15,8 @@ import messageIcon2 from "../images/icon/message-2.png";
 import textIcon2 from "../images/icon/text-2.png";
 import spLogo from "../images/splash/splash_logo.gif";
 
+import bubbleJson from "../images/bubble/bubble.json";
+
 // css 파일
 import "../styles/css/editor.css";
 
@@ -59,6 +61,7 @@ const Editor = () => {
   const [isPicture, setIsPicture] = useState(false);
   const [isImgSrc, setImgSrc] = useState(false);
   const [frameNum, setFrame] = useState(false);
+  const [bubbleNum, setBubbleNum] = useState(false);
   const canvasId = React.useRef(null);
 
   const getIsPicture = (isPicture) => {
@@ -68,6 +71,10 @@ const Editor = () => {
   const getImgSrc = (isImgSrc) => {
     setImgSrc(isImgSrc);
   };
+
+  const getBubbleNum = (bubbleNum) => {
+    setBubbleNum(bubbleNum);
+  }
 
 
   let locationSet = 650
@@ -85,9 +92,9 @@ const Editor = () => {
   var FrameHeight = [480, 100, 200];
 
 
-  const img = new Image();
+  const img = new Path2D();
   
-  img.src = "bubble/bubble.png";
+  img.src = "../images/bubble/bubble1.svg";
 
   useEffect(() => {
     
@@ -225,73 +232,27 @@ const Editor = () => {
     createPicture();
   }
 
+  if (bubbleNum) {
+    console.log(bubbleNum)
+    createBubble(bubbleNum);
+  }
+
 
   
-  const createBubble = () => {
+  const createBubble = (index) => {
+
+    let p = new Path2D(bubbleJson[index]);
+    ctxValue.stroke(p);
 
     // ctx.clearRect(locationSet, locationSet, bubbleWidth[0], bubbleWidth[0]);
-    ctxValue.drawImage(img, (locationSet-(bubbleWidth[0]/2)), (locationSet-(bubbleHeight[0]/2)), bubbleWidth[0], bubbleHeight[0]);
+    // ctxValue.drawImage(img, (locationSet-(bubbleWidth[0]/2)), (locationSet-(bubbleHeight[0]/2)), bubbleWidth[0], bubbleHeight[0]);
 
     bubble1X = locationSet
     bubble1Y = locationSet
     buubleTrue[0] = true;
-
-    // ctx.beginPath();
-    // ctx.arc(x, y, 10, 0, 10*Math.PI);
-    // ctx.stroke();
-  
   }
 
 
-  // canvas.onmousedown = function(event){
-  //   var canvas = canvasId.current;
-  //   var ctx = canvas.getContext('2d');
-  //   var x = event.clientX - ctx.canvas.offsetLeft;
-  //   var y = event.clientY - ctx.canvas.offsetTop;
-
-  //   if (buubleTrue[0] == true
-  //     && (bubble1X-bubbleWidth[0]/2 <= x <=bubble1X+bubbleWidth[0]/2)
-  //     && (bubble1Y-bubbleHeight[0]/2 <= y <=bubble1Y+bubbleHeight[0]/2)) {
-      
-  //     console.log("yes")
-  //   }
-  // }
-
-  // const canvasOnmousedown = (event) => {
-  //   console.log();
-  //   var canvas = canvasId.current;
-  //   var ctx = canvas.getContext('2d');
-  //   var x = event.clientX - ctx.canvas.offsetLeft;
-  //   var y = event.clientY - ctx.canvas.offsetTop;
-
-  //   if (buubleTrue[0] == true
-  //     && (bubble1X-bubbleWidth[0]/2 <= x <=bubble1X+bubbleWidth[0]/2)
-  //     && (bubble1Y-bubbleHeight[0]/2 <= y <=bubble1Y+bubbleHeight[0]/2)) {
-      
-  //   }
-
-
-  //   canvas.onmousedown = function(){
-  
-  //     canvas.onmousemove = function(){
-        
-  //       // var x = event.clientX - ctx.canvas.offsetLeft;
-  //       // var y = event.clientY - ctx.canvas.offsetTop;
-        
-  //       ctx.clearRect(x, y, width, height);
-  //       createBubble(x, y, width, height);
-  //       // console.log(x, y);
-  //     }
-  //   }
-  // }
-
-  // const removeBubble = () => {
-  //   var canvas = canvasId.current;
-  //   var ctx = canvas.getContext('2d');
-
-  //   ctx.clearRect(x, y, 500, 500);
-  //   ctx.beginPath();
-  // }
 
 
   // -------------------------- 민혁 파트 끝 -------------------------
@@ -666,7 +627,9 @@ const Editor = () => {
             className="download"
             type="button"
             onClick={() => {
-              down();
+              // down();
+              createBubble();
+              console.log(bubbleJson[0])
             }}
           >
             <img src={downloadIcon} alt="download.png" />

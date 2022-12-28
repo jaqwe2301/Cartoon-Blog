@@ -5,32 +5,47 @@ import { ReactComponent as Bubble2 } from "../images/bubble/bubble2.svg";
 import { ReactComponent as Bubble3 } from "../images/bubble/bubble3.svg";
 import { ReactComponent as Bubble4 } from "../images/bubble/bubble4.svg";
 import { ReactComponent as Bubble5 } from "../images/bubble/bubble5.svg";
-import { styled } from 'styled-components';
+import { ReactComponent as Bubble6 } from "../images/bubble/bubble6.svg";
+import { ReactComponent as Bubble7 } from "../images/bubble/bubble7.svg";
+import { ReactComponent as Bubble8 } from "../images/bubble/bubble8.svg";
+
+import "../styles/css/speechBubble.css";
 
 
+function SpeechBubble({getBubbleNum}) {
 
-
-function SpeechBubble(getIsCreateBubble) {
-
-  const [isCreateBubble, setIsCreateBubble] = useState(false);
+  const [bubbleNum, setBubbleNum] = useState(false);
 
   const img = new Image();
   img.src = "bubble/bubble1-squ.png";
   
     return (
       <>
-          <input className="inputbox" type="text" placeholder="말풍선 검색"></input>
-          
           <div className="bubbleBox">
-            <Bubble1 height="5rem" width="8rem" style={{background: 'gray'}}
-                    onClick={() => {
-                      setIsCreateBubble(!isCreateBubble);
-                      {getIsCreateBubble(!isCreateBubble)}}}
-            />
-            <Bubble2 height="5rem" width="8rem" style={{background: 'gray'}}/>
-            <Bubble3 height="5rem" width="8rem" style={{background: 'gray'}}/>
-            <Bubble4 height="5rem" width="8rem" style={{background: 'gray'}}/>
-            <Bubble5 height="5rem" width="8rem" style={{background: 'gray'}}/>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(0); getBubbleNum(0);}}>
+              <Bubble1 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(1); getBubbleNum(1);}}>
+              <Bubble2 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(2); getBubbleNum(2);}}>
+              <Bubble3 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(3); getBubbleNum(3);}}>
+              <Bubble4 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(4); getBubbleNum(4);}}>
+              <Bubble5 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(5); getBubbleNum(5);}}>
+              <Bubble6 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(6); getBubbleNum(6);}}>
+              <Bubble7 className="bubble"/>
+            </div>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(7); getBubbleNum(7);}}>
+              <Bubble8 className="bubble"/>
+            </div>
 
           </div>
 
