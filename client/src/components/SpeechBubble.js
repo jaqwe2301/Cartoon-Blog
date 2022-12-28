@@ -22,7 +22,7 @@ function SpeechBubble({getBubbleNum}) {
     return (
       <>
           <div className="bubbleBox">
-            <div className='bubble-content-container' onClick={() => {setBubbleNum(0); getBubbleNum(0);}}>
+            <div className='bubble-content-container' onClick={() => {setBubbleNum(true); getBubbleNum(true);}}>
               <Bubble1 className="bubble"/>
             </div>
             <div className='bubble-content-container' onClick={() => {setBubbleNum(1); getBubbleNum(1);}}>

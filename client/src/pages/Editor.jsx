@@ -234,14 +234,14 @@ const Editor = () => {
 
   if (bubbleNum) {
     console.log(bubbleNum)
-    createBubble(bubbleNum);
+    createBubble();
   }
 
 
   
-  const createBubble = (index) => {
+  const createBubble = () => {
 
-    let p = new Path2D(bubbleJson[index]);
+    let p = new Path2D(bubbleJson[0]);
     ctxValue.stroke(p);
 
     // ctx.clearRect(locationSet, locationSet, bubbleWidth[0], bubbleWidth[0]);
@@ -608,7 +608,7 @@ const Editor = () => {
           </button>
         </div>
         <div className="logo">
-          <img src={logo} alt="logo.png" style={{ width: "100px", height: "56px" }} />
+          <img src={logo} alt="logo.png" onClick={()=>createBubble()} style={{ width: "100px", height: "56px" }} />
         </div>
         <div className="l_IconBox iconBox">
           <button className="save" type="button">
@@ -627,8 +627,7 @@ const Editor = () => {
             className="download"
             type="button"
             onClick={() => {
-              // down();
-              createBubble();
+              down();
               console.log(bubbleJson[0])
             }}
           >
